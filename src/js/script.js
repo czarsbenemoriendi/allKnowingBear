@@ -1,8 +1,9 @@
 const elements = {
-	input: document.querySelector('input'),
-	pAnswer: document.querySelector('.answer'),
-	bear: document.querySelector('.ball'),
-	pError: document.querySelector('.error'),
+	input: document.querySelector('#question'),
+	ball: document.querySelector('#eight-ball'),
+	eight: document.querySelector('#eight'),
+	answer: document.querySelector('#answer'),
+	error: document.querySelector('#error'),
 };
 
 const answersArray = [
@@ -30,22 +31,28 @@ const answersArray = [
 
 const generateAnswer = () => {
 	const number = Math.floor(Math.random() * answersArray.length);
-	elements.pAnswer.innerHTML = `${answersArray[number]}`;
+	elements.answer.innerHTML = `${answersArray[number]}`;
 	console.log(number);
 };
-
+const shakeBall = () => {
+	elements.ball.classList.add('shake-animation');
+	setTimeout(checkInput, 1000);
+};
 const checkInput = () => {
+	elements.ball.classList.remove('shake-animation');
+
 	if (elements.input.value !== '' && elements.input.value.endsWith('?')) {
 		generateAnswer();
-		elements.pError.textContent = '';
+		elements.error.textContent = '';
+		elements.eight.textContent = '';
 	} else if (
 		elements.input.value !== '' &&
 		elements.input.value.endsWith('?') !== '?'
 	) {
-		elements.pError.textContent = `Add a sign '?'`;
+		elements.error.textContent = `Add a sign '?'`;
 	} else {
-		elements.pError.textContent = `Ask a question`;
+		elements.error.textContent = `Ask a question`;
 	}
 };
 
-elements.bear.addEventListener('click', checkInput);
+elements.ball.addEventListener('click', shakeBall);

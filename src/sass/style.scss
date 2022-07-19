@@ -9,12 +9,13 @@ body {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
+	margin-top: 50px;
 	font-family: 'Roboto', sans-serif;
 
 	background-color: rgb(98, 98, 98);
 }
 .wrapper {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -37,12 +38,23 @@ body {
 	width: 60%;
 }
 #eight-ball {
+	position: absolute;
+	top: 200px;
+	left: 200px;
 	margin-top: 30px;
 	margin-bottom: 30px;
 	background-color: black;
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
+	cursor: pointer;
+}
+#error {
+	margin-top: 20px;
+	font-size: 20px;
+	color: red;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 .answer {
 	margin: 25%;
@@ -50,22 +62,36 @@ body {
 	width: 50%;
 	height: 50%;
 	border-radius: 50%;
+	#answer {
+		padding: 20px;
+		font-size: 18px;
+		letter-spacing: 2px;
+	}
 	#eight {
 		padding-top: 40px;
 		font-size: 60px;
 	}
 }
-@keyframes shakeAnimation {
+.shake-animation {
+	animation: shake 1s 1;
+}
+@keyframes shake {
 	0% {
+		left: 190px;
 	}
 	20% {
+		left: 240px;
 	}
 	40% {
+		left: 160px;
 	}
 	60% {
+		left: 260px;
 	}
 	80% {
+		left: 190px;
 	}
 	100% {
+		left: 200px;
 	}
 }
