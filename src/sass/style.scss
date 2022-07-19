@@ -36,6 +36,9 @@ body {
 #question {
 	padding: 10px 20px;
 	width: 60%;
+	border-radius: 10px;
+	border: 1px solid black;
+	font-size: 20px;
 }
 #eight-ball {
 	position: absolute;
@@ -56,6 +59,7 @@ body {
 	font-weight: bold;
 	letter-spacing: 2px;
 }
+
 .answer {
 	margin: 25%;
 	background-color: white;

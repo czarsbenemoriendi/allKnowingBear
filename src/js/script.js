@@ -1,3 +1,4 @@
+alert(`You could use enter :)`);
 const elements = {
 	input: document.querySelector('#question'),
 	ball: document.querySelector('#eight-ball'),
@@ -32,7 +33,6 @@ const answersArray = [
 const generateAnswer = () => {
 	const number = Math.floor(Math.random() * answersArray.length);
 	elements.answer.innerHTML = `${answersArray[number]}`;
-	console.log(number);
 };
 const shakeBall = () => {
 	elements.ball.classList.add('shake-animation');
@@ -50,9 +50,19 @@ const checkInput = () => {
 		elements.input.value.endsWith('?') !== '?'
 	) {
 		elements.error.textContent = `Add a sign '?'`;
+		elements.eight.textContent = '8';
+		elements.answer.textContent = '';
 	} else {
 		elements.error.textContent = `Ask a question`;
+		elements.eight.textContent = '8';
+		elements.answer.textContent = '';
 	}
 };
 
 elements.ball.addEventListener('click', shakeBall);
+document.addEventListener('keydown', (e) => {
+	const enter = e.key;
+	if (enter === 'Enter') {
+		shakeBall();
+	}
+});
