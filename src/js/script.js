@@ -20,9 +20,9 @@ const checkInput = () => {
 		elements.input.value !== '' &&
 		elements.input.value.endsWith('?') !== '?'
 	) {
-		elements.pError.textContent = `Musisz dopisać znak '?'`;
+		elements.pError.textContent = `Add a sign '?'`;
 	} else {
-		elements.pError.textContent = `Zadaj pytanie`;
+		elements.pError.textContent = `Ask a question`;
 	}
 };
 
