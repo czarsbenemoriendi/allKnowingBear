@@ -5,7 +5,7 @@ const elements = {
 	pError: document.querySelector('.error'),
 };
 
-const answersArray = ['Tak', 'Nie', 'Może'];
+const answersArray = ['Yes', 'No', 'Maybe'];
 
 const generateAnswer = () => {
 	const number = Math.floor(Math.random() * 3);
