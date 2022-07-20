@@ -16,12 +16,14 @@ body {
 // buttons
 .buttons {
 	position: absolute;
-	bottom: 90px;
+	left: 50px;
+	bottom: 200px;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 
-	gap: 5px;
+	gap: 10px;
 }
 #bear,
 #ball {
