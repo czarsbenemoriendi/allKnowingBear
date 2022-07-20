@@ -1,10 +1,18 @@
-alert(`You could use enter :)`);
+// alert(`You could use enter :)`);
 const elements = {
 	input: document.querySelector('#question'),
 	ball: document.querySelector('#eight-ball'),
 	eight: document.querySelector('#eight'),
 	answer: document.querySelector('#answer'),
 	error: document.querySelector('#error'),
+};
+const btns = {
+	btnBear: document.querySelector('#bear'),
+	btnBall: document.querySelector('#ball'),
+};
+const divsBoxes = {
+	boxBall: document.querySelector('.box-ball'),
+	boxBear: document.querySelector('.box-bear'),
 };
 
 const answersArray = [
@@ -38,6 +46,27 @@ const shakeBall = () => {
 	elements.ball.classList.add('shake-animation');
 	setTimeout(checkInput, 1000);
 };
+
+const addFunctionBall = () => {
+	divsBoxes.boxBall.classList.add('show');
+	divsBoxes.boxBear.classList.remove('show');
+};
+const addFunctionBear = () => {
+	divsBoxes.boxBear.classList.add('show');
+	divsBoxes.boxBall.classList.remove('show');
+};
+
+// const toggleFunctionBall = () => {
+// 	divsBoxes.boxBall.classList.toggle('show');
+// };
+// const toggleFunctionBear = () => {
+// 	divsBoxes.boxBear.classList.toggle('show');
+// };
+// const checkFunction = () => {
+// 	if (divsBoxes.boxBall.classList.contains('show')) {
+// 		divsBoxes.boxBear.classList.remove('show');
+// 	}
+// };
 const checkInput = () => {
 	elements.ball.classList.remove('shake-animation');
 
@@ -59,6 +88,8 @@ const checkInput = () => {
 	}
 };
 
+btns.btnBear.addEventListener('click', addFunctionBear);
+btns.btnBall.addEventListener('click', addFunctionBall);
 elements.ball.addEventListener('click', shakeBall);
 document.addEventListener('keydown', (e) => {
 	const enter = e.key;

@@ -14,13 +14,23 @@ body {
 
 	background-color: rgb(98, 98, 98);
 }
+.show {
+	display: inline-block !important;
+}
+.box-ball {
+	display: none;
+}
+.box-bear {
+	display: none;
+}
 .wrapper {
 	position: relative;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	text-align: center;
+	height: 100vh;
 }
 .info {
 	text-align: center;
@@ -40,6 +50,7 @@ body {
 	border: 1px solid black;
 	font-size: 20px;
 }
+
 #eight-ball {
 	position: absolute;
 	top: 200px;
@@ -78,6 +89,11 @@ body {
 }
 .shake-animation {
 	animation: shake 1s 1;
+}
+
+.buttons {
+	position: absolute;
+	bottom: 150px;
 }
 @keyframes shake {
 	0% {

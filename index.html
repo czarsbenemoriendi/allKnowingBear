@@ -15,16 +15,24 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<div class="info">
-				<h1>Magic 8-ball</h1>
-				<p>Ask me, click on the Magic 8-ball and get the answer</p>
+			<div class="box-ball">
+				<div class="info">
+					<h1>Magic 8-ball</h1>
+					<p>Ask me, click on the Magic 8-ball and get the answer</p>
+				</div>
+				<input type="text" id="question" />
+				<p id="error"></p>
+				<div id="eight-ball">
+					<div class="answer">
+						<p id="eight">8</p>
+						<p id="answer"></p>
+					</div>
+				</div>
 			</div>
-			<input type="text" id="question" />
-			<p id="error"></p>
-			<div id="eight-ball" >
-			<div class="answer">
-				<p id="eight">8</p>
-				<p id="answer"></p>
+			<div class="box-bear"></div>
+			<div class="buttons">
+				<button id="bear">allKnowingBear</button>
+				<button id="ball">magic8ball</button>
 			</div>
 		</div>
 		<script src="./dist/js/main.min.js"></script>
