@@ -14,7 +14,13 @@ const divsBoxes = {
 	boxBall: document.querySelector('.box-ball'),
 	boxBear: document.querySelector('.box-bear'),
 };
-
+const bearElements = {
+	input: document.querySelector('input'),
+	pAnswer: document.querySelector('.answer'),
+	bear: document.querySelector('img'),
+	pError: document.querySelector('.error'),
+};
+const answersBear = ['Yes', 'No', 'Maybe'];
 const answersArray = [
 	'It is certain',
 	'It is decidedly so',
@@ -38,13 +44,18 @@ const answersArray = [
 	'Concentrate and ask again',
 ];
 
-const generateAnswer = () => {
-	const number = Math.floor(Math.random() * answersArray.length);
-	elements.answer.innerHTML = `${answersArray[number]}`;
-};
 const shakeBall = () => {
 	elements.ball.classList.add('shake-animation');
 	setTimeout(checkInput, 1000);
+};
+
+const generateAnswerBear = () => {
+	const number = Math.floor(Math.random() * answersBear.length);
+	bearElements.pAnswer.innerHTML = `${answersBear[number]}`;
+};
+const generateAnswer = () => {
+	const number = Math.floor(Math.random() * answersArray.length);
+	elements.answer.innerHTML = `${answersArray[number]}`;
 };
 
 const addFunctionBall = () => {
@@ -56,17 +67,23 @@ const addFunctionBear = () => {
 	divsBoxes.boxBall.classList.remove('show');
 };
 
-// const toggleFunctionBall = () => {
-// 	divsBoxes.boxBall.classList.toggle('show');
-// };
-// const toggleFunctionBear = () => {
-// 	divsBoxes.boxBear.classList.toggle('show');
-// };
-// const checkFunction = () => {
-// 	if (divsBoxes.boxBall.classList.contains('show')) {
-// 		divsBoxes.boxBear.classList.remove('show');
-// 	}
-// };
+const checkBear = () => {
+	if (
+		bearElements.input.value !== '' &&
+		bearElements.input.value.endsWith('?')
+	) {
+		generateAnswer();
+		bearElements.pError.textContent = '';
+	} else if (
+		bearElements.input.value !== '' &&
+		bearElements.input.value.endsWith('?') !== '?'
+	) {
+		bearElements.pError.textContent = `Add a sign '?'`;
+	} else {
+		bearElements.pError.textContent = `Ask a question`;
+	}
+};
+
 const checkInput = () => {
 	elements.ball.classList.remove('shake-animation');
 
@@ -87,7 +104,7 @@ const checkInput = () => {
 		elements.answer.textContent = '';
 	}
 };
-
+bearElements.bear.addEventListener('click', checkBear);
 btns.btnBear.addEventListener('click', addFunctionBear);
 btns.btnBall.addEventListener('click', addFunctionBall);
 elements.ball.addEventListener('click', shakeBall);
