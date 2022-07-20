@@ -15,10 +15,10 @@ const divsBoxes = {
 	boxBear: document.querySelector('.box-bear'),
 };
 const bearElements = {
-	input: document.querySelector('input'),
-	pAnswer: document.querySelector('.answer'),
+	input: document.querySelector('.inputBear'),
+	pAnswer: document.querySelector('.answerBear'),
 	bear: document.querySelector('img'),
-	pError: document.querySelector('.error'),
+	pError: document.querySelector('.errorBear'),
 };
 const answersBear = ['Yes', 'No', 'Maybe'];
 const answersArray = [
@@ -52,17 +52,19 @@ const shakeBall = () => {
 const generateAnswerBear = () => {
 	const number = Math.floor(Math.random() * answersBear.length);
 	bearElements.pAnswer.innerHTML = `${answersBear[number]}`;
+
 };
+
 const generateAnswer = () => {
 	const number = Math.floor(Math.random() * answersArray.length);
 	elements.answer.innerHTML = `${answersArray[number]}`;
 };
 
-const addFunctionBall = () => {
+const addClassBall = () => {
 	divsBoxes.boxBall.classList.add('show');
 	divsBoxes.boxBear.classList.remove('show');
 };
-const addFunctionBear = () => {
+const addClassBear = () => {
 	divsBoxes.boxBear.classList.add('show');
 	divsBoxes.boxBall.classList.remove('show');
 };
@@ -72,7 +74,7 @@ const checkBear = () => {
 		bearElements.input.value !== '' &&
 		bearElements.input.value.endsWith('?')
 	) {
-		generateAnswer();
+		generateAnswerBear();
 		bearElements.pError.textContent = '';
 	} else if (
 		bearElements.input.value !== '' &&
@@ -105,8 +107,8 @@ const checkInput = () => {
 	}
 };
 bearElements.bear.addEventListener('click', checkBear);
-btns.btnBear.addEventListener('click', addFunctionBear);
-btns.btnBall.addEventListener('click', addFunctionBall);
+btns.btnBear.addEventListener('click', addClassBear);
+btns.btnBall.addEventListener('click', addClassBall);
 elements.ball.addEventListener('click', shakeBall);
 document.addEventListener('keydown', (e) => {
 	const enter = e.key;
