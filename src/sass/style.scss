@@ -13,6 +13,37 @@ body {
 	font-family: 'Roboto', sans-serif;
 	background-color: rgb(98, 98, 98);
 }
+// buttons
+.buttons {
+	position: absolute;
+	bottom: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	gap: 5px;
+}
+#bear,
+#ball {
+	display: inline-block;
+	padding: 10px 20px;
+	height: 75px;
+	width: 150px;
+	font-size: 17px;
+	text-align: center;
+	letter-spacing: 2px;
+	border-radius: 10px;
+	border: solid 1px transparent;
+}
+
+#bear:hover,
+#bear:active,
+#ball:hover,
+#ball:active {
+	box-shadow: 0 0.5em 0.5em -0.4em white;
+	transform: translateY(-0.25em);
+}
+
 .show {
 	display: inline-block !important;
 }
@@ -88,11 +119,6 @@ body {
 }
 .shake-animation {
 	animation: shake 1s 1;
-}
-
-.buttons {
-	position: absolute;
-	bottom: 150px;
 }
 
 // bear
